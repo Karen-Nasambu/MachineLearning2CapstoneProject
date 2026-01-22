@@ -227,6 +227,35 @@ To make this project accessible to the real world, we deploy it using **Streamli
 * **Multilingual Support:** describing scenes in Spanish, French, and Swahili.
 
 ---
+## 🏆 Competitive Analysis: How We Stand Out
+
+There are existing solutions for the visually impaired, but they often lack the **contextual storytelling** that "The Talking Lens" provides. Most current tools tell you *what* is there, but not *what is happening*.
+
+### 📱 The "Other" Apps (Current Solutions)
+
+1.  **Google Lens / Bixby Vision:**
+    * *What they do:* Excellent at identifying specific objects ("Chair", "Coke Bottle") or reading text.
+    * *The Gap:* They are encyclopedic, not descriptive. If you point it at a family dinner, it might list tags like "Table," "Food," "Person." It fails to say: *"A family eating dinner together at a round table."*
+2.  **Be My Eyes:**
+    * *What they do:* Connects blind users with real human volunteers via video call.
+    * *The Gap:* **Privacy & Speed.** Users often don't want a stranger seeing their messy bedroom or personal documents. It also requires waiting for a volunteer to pick up.
+3.  **Microsoft Seeing AI:**
+    * *What they do:* A powerful multi-tool (reads currency, recognizes faces).
+    * *The Gap:* **Complexity.** The user must constantly switch "Channels" (Scene mode vs. Document mode vs. Product mode). Our solution is a single-button "Snap & Describe" interface.
+
+### ✨ The "Talking Lens" Advantage
+
+Our project uses **Generative Multimodal Deep Learning**, which allows it to generate human-like sentences rather than just listing keywords.
+
+| Feature | 🤖 Google Lens | 👥 Be My Eyes | 📸 The Talking Lens (Ours) |
+| :--- | :--- | :--- | :--- |
+| **Output Type** | List of Tags ("Dog", "Grass") | Human Conversation | **Full Descriptive Sentence** |
+| **Privacy** | High | Low (Human sees video) | **High (100% AI-based)** |
+| **Speed** | Fast | Slow (Wait time) | **Instant** |
+| **Context** | ❌ (Just Objects) | ✅ (Human Intelligence) | **✅ (AI Scene Understanding)** |
+| **Availability**| Always | Depends on Volunteers | **24/7 Always On** |
+
+> **Key Differentiator:** While Google Lens helps you *shop*, and Be My Eyes helps you *navigate*, The Talking Lens helps you **understand your environment** through natural language storytelling.
 
 *Project created by [KAREN NASAMBU] for the Data Science Capstone.*
 
