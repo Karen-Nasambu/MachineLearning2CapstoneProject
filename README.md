@@ -259,3 +259,132 @@ Our project uses **Generative Multimodal Deep Learning**, which allows it to gen
 
 *Project created by [KAREN NASAMBU] for the Data Science Capstone.*
 
+
+
+---
+
+# 🏭 Optic-Guard: Industrial Defect Detection
+
+### *Automating Quality Control with "One-Class" Anomaly Detection.*
+
+---
+
+## 📖 Table of Contents
+
+1. [The Problem Statement](https://www.google.com/search?q=%23-the-problem-statement)
+2. [The Solution (Unsupervised)](https://www.google.com/search?q=%23-the-solution-unsupervised)
+3. [Why This Is Different (Competitive Analysis)](https://www.google.com/search?q=%23-why-this-is-different-competitive-analysis)
+4. [Tech Stack & Tools](https://www.google.com/search?q=%23-tech-stack--tools)
+5. [The Dataset](https://www.google.com/search?q=%23-the-dataset)
+6. [How It Works (Architecture)](https://www.google.com/search?q=%23-how-it-works-architecture)
+7. [Installation & Usage](https://www.google.com/search?q=%23-installation--usage)
+8. [Business Impact](https://www.google.com/search?q=%23-business-impact)
+
+---
+
+## 🚨 The Problem Statement
+
+**"How do you find a needle in a haystack if you've never seen a needle?"**
+
+In modern manufacturing (e.g., Automotive, Aerospace, Tech), production lines are incredibly efficient. "Defective" parts are extremely rare—often less than **1 in 10,000**.
+
+This creates a massive problem for traditional AI:
+
+1. **Data Scarcity:** Supervised models (like "Cat vs. Dog") need thousands of examples of "Bad Parts" to learn. Factories simply don't have that data.
+2. **The "Unknown" Defect:** A standard model trained to find "Scratches" will completely miss a "Dent" or "Stain" because it hasn't been taught that specific class.
+
+---
+
+## 💡 The Solution (Unsupervised)
+
+**Optic-Guard** flips the script. Instead of looking for defects, we teach the AI **what "Perfection" looks like.**
+
+We use a **Convolutional Autoencoder** trained **exclusively on good products**. The model learns the statistical patterns, textures, and geometry of a perfect part.
+
+When a defective part appears (scratch, crack, rust):
+
+1. The model attempts to reconstruct it based on its knowledge of "perfection."
+2. It fails to reconstruct the defect effectively.
+3. The system calculates the **Reconstruction Error**. If the error is high, the part is instantly rejected.
+
+> **Key Takeaway:** This model detects **any** anomaly, even types of damage it has never seen before.
+
+---
+
+## 🏆 Why This Is Different (Competitive Analysis)
+
+Most AI portfolios feature basic Supervised Classification (e.g., "Tumor vs. No Tumor"). Here is why **Optic-Guard** stands out:
+
+| Feature | 👶 Traditional Supervised AI | 🏭 Optic-Guard (Unsupervised) |
+| --- | --- | --- |
+| **Logic** | "I check for specific errors I was taught." | "I check for *anything* that isn't perfect." |
+| **Data Requirements** | Needs thousands of "Defect" images. | Needs **ZERO** defect images to train. |
+| **Robustness** | Fails on new, unknown defect types. | **Succeeds** (Flags any deviation). |
+| **Labeling Effort** | High (Humans must tag every image). | **Zero** (Just dump raw "Good" images). |
+| **Real World Use** | Basic filtering. | High-end Mfg (Tesla, Apple, Foxconn). |
+
+---
+
+## 🛠 Tech Stack & Tools
+
+| Component | Tool / Library | Purpose |
+| --- | --- | --- |
+| **Language** | Python 3.9 | Core logic. |
+| **Deep Learning** | **PyTorch** | Building the Convolutional Autoencoder. |
+| **Processing** | **OpenCV** | Image preprocessing (Grayscale, Resizing). |
+| **Visualization** | **Matplotlib / Seaborn** | Plotting the "Error Heatmaps". |
+| **Interface** | **Streamlit** | Simulating a live factory dashboard. |
+
+---
+
+## 📂 The Dataset
+
+We use the **Casting Product Image Data for Quality Inspection**.
+
+* **Source:** [Kaggle Link](https://www.google.com/search?q=https://www.kaggle.com/datasets/ravirajsinh45/real-life-industrial-dataset-of-casting-product)
+* **Context:** Submersible pump impellers cast in metal.
+* **Structure:**
+* `train/ok_front`: **The only data the model sees during training.**
+* `test/def_front`: Used *only* to evaluate if the model catches the errors.
+
+
+
+---
+
+## 🏗 How It Works (Architecture)
+
+### 1. The Encoder (Compression)
+
+The input image () is passed through convolutional layers. It is compressed down into a tiny **Latent Vector** (bottleneck). This forces the model to discard noise and keep only the *essential features* of a good part.
+
+### 2. The Decoder (Reconstruction)
+
+The model tries to rebuild the original image from that tiny vector. Since it only knows "Good" features, it reconstructs a "Good" version of the image.
+
+### 3. The Decision (Anomaly Scoring)
+
+We compare the **Input Image** vs. **Reconstructed Image**.
+
+
+* **Low Loss:** The part is Normal.
+* **High Loss:** The part is Defective (The "Difference Map" glows where the defect is).
+
+---
+
+
+## 💰 Business Impact
+
+1. **Cost Reduction:** Automates visual inspection, which is the most expensive part of quality control.
+2. **Scalability:** One model can be trained on screws, another on screens, another on fabrics—without changing the code.
+3. **Brand Protection:** Prevents defective products from reaching customers, avoiding costly recalls.
+
+---
+
+## 📸 Future Improvements
+
+* **Real-time Video:** Optimize inference speed to work on 60fps video feeds.
+* **Localization:** Improve the heatmap resolution to circle the exact millimeter where the scratch is.
+
+---
+
+*Project created by [Karen Nasambu] for the Data Science Capstone.*
